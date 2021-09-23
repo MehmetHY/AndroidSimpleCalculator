@@ -18,6 +18,14 @@ android {
 
     buildTypes {
         release {
+            applicationVariants.all{
+                variant ->
+                    variant.outputs.each{
+                        output->
+                            def newName = "Simple Calculator V" + versionName + ".apk"
+                            output.outputFileName  = newName
+                    }
+            }
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
